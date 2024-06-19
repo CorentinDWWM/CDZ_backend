@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
 const userRoutes = require("./routes/users");
+const roleRoutes = require("./routes/roles");
 const cors = require("cors");
 const allowedOrigin = "*";
 // const allowedOrigin = "https://site-cdz.vercel.app/";
@@ -23,6 +24,7 @@ app.use(
 );
 
 app.use("/api/users", userRoutes);
+app.use("api/roles", roleRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
